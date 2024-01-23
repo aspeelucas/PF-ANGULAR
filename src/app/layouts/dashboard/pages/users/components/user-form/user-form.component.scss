@@ -1,0 +1,42 @@
+.formContainer{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 30px;
+margin-bottom: 30px;
+}
+
+form{
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: fit-content;
+}
+.containerInputs{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+.containerInputs mat-form-field{
+    width: 50%;
+}
+.containerSelect{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+.containerSelect mat-form-field{
+    width: 50%;
+}
+
+.buttonSubmit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonSubmit button{
+    background-color: #6930C3;
+    color: white;
+}
+

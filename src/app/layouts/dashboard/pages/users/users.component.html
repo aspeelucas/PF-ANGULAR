@@ -1,0 +1,73 @@
+
+<mat-accordion class="accordeonBody">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h3>Crear Usuario</h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="tableBody">
+  <div><h1>Lista de Estudiantes</h1></div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef>Nombre y Apellido</th>
+      <td mat-cell *matCellDef="let user">
+        {{ user.firstName + " " + user.lastName }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Telefono</th>
+      <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Rol</th>
+      <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+    </ng-container>
+    <ng-container matColumnDef="nivel">
+      <th mat-header-cell *matHeaderCellDef>Nivel</th>
+      <td mat-cell *matCellDef="let user">{{ user.nivel }}</td>
+    </ng-container>
+    <ng-container matColumnDef="curso">
+      <th mat-header-cell *matHeaderCellDef>Curso</th>
+      <td mat-cell *matCellDef="let user">{{ user.curso }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let user">
+        {{ user.actions }}
+        <button
+        class="buttonEdit"
+        mat-icon-button
+          
+          (click)="onUpdatedUser(user.id)"
+        >
+          <mat-icon>edit</mat-icon></button
+        ><button mat-icon-button color="warn" (click)="showModal(user.id)">
+         <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
