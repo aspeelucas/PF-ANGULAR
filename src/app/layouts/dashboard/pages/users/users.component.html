@@ -4,7 +4,7 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h3>Crear Usuario</h3>
+        <h3 appFontSizeDirective>Crear Usuario</h3>
       </mat-panel-title>
     </mat-expansion-panel-header>
     <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
@@ -12,7 +12,7 @@
 </mat-accordion>
 
 <div class="tableBody">
-  <div><h1>Lista de Estudiantes</h1></div>
+  <div><h1 appFontSizeDirective>Lista de Estudiantes</h1></div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
