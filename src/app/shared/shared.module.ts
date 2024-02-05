@@ -5,17 +5,20 @@ import { FontSizeDirectiveDirective } from './font-size-directive.directive';
 
 
 
+
 @NgModule({
   declarations: [
     FullNamePipe,
-    FontSizeDirectiveDirective
+    FontSizeDirectiveDirective,
+   
   ],
   imports: [
     CommonModule
   ],
   exports: [
     FullNamePipe,
-    FontSizeDirectiveDirective
+    FontSizeDirectiveDirective,
+    
   ]
 })
 export class SharedModule { }

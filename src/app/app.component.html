@@ -1,2 +1,3 @@
-
-<app-dashboard></app-dashboard>
+<div class="app-loading" *ngIf="isLoading"><mat-spinner color="primary"></mat-spinner></div>
+<!-- <app-dashboard></app-dashboard> -->
+<router-outlet></router-outlet>

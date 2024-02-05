@@ -37,7 +37,7 @@ export class UserFormComponent {
       this.userForm.markAllAsTouched();
     } else {
       this.userSubmitted.emit(this.userForm.value);
-      this.showModal();
+      // this.showModal();
       this.userForm.reset();
     }
   }

@@ -11,16 +11,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SharedModule } from '../../../../shared/shared.module';
+import { UsersService } from '../../../../core/services/users.service';
+import { UsersMockServices } from '../../../../core/services/users-mock.services';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     UsersComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserDetailComponent
   ],
   imports: [
-    CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,ReactiveFormsModule,MatIconModule,MatExpansionModule,SharedModule
+    CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,ReactiveFormsModule,MatIconModule,MatExpansionModule,SharedModule,RouterModule
   ],
   exports: [
     UsersComponent
+  ],
+  providers: [
+  {
+    provide: UsersService,
+    useClass: UsersMockServices
+  }
   ]
 })
 export class UsersModule { }

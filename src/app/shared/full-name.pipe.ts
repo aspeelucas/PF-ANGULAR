@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 function capitalizeFirstLetter(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1);
+  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 }
 
 export interface IUsersPipe { 

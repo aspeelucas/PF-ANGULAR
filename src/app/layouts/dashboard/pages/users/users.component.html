@@ -1,7 +1,8 @@
-
 <mat-accordion class="accordeonBody">
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
     <mat-expansion-panel-header>
       <mat-panel-title>
         <h3 appFontSizeDirective>Crear Usuario</h3>
@@ -25,7 +26,7 @@
     <ng-container matColumnDef="fullName">
       <th mat-header-cell *matHeaderCellDef>Nombre y Apellido</th>
       <td mat-cell *matCellDef="let user">
-        {{user | fullName}}
+        {{ user | fullName }}
       </td>
     </ng-container>
     <ng-container matColumnDef="email">
@@ -53,14 +54,20 @@
       <td mat-cell *matCellDef="let user">
         {{ user.actions }}
         <button
-        class="buttonEdit"
-        mat-icon-button
-          
+       [routerLink]="user.id"
+         mat-icon-button class="buttonEdit" >
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button
+          class="buttonEdit"
+          mat-icon-button
           (click)="onUpdatedUser(user.id)"
         >
           <mat-icon>edit</mat-icon></button
-        ><button mat-icon-button color="warn" (click)="showModal(user.id)">
-         <mat-icon>delete</mat-icon>
+
+        >
+        <button mat-icon-button color="warn" (click)="showModalDeleted(user)">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>
