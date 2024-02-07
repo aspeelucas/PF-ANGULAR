@@ -48,7 +48,14 @@ export class UsersService {
 
   createUser(payload: IUsers) {
     USERS_DB.push(payload);
-    return this.getUsers();
+    return this.getUsers().pipe(
+      tap(() =>
+        this.alertServices.showSuccess(
+          'Usuario creado',
+          'El usuario fue creado correctamente'
+        )
+      )
+    );
   }
   deleteUser(id: number) {
     USERS_DB = USERS_DB.filter((user) => user.id !== id);

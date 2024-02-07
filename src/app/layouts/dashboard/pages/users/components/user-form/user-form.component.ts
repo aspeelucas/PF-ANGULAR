@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -24,13 +24,7 @@ export class UserFormComponent {
     });
   }
   
- showModal(): void {
-    Swal.fire({
-      title: 'Usuario Creado',
-      icon: 'success',
-      confirmButtonText: 'Aceptar'
-    });
-  }
+
 
   onSubmit(): void {
     if (this.userForm.invalid) {

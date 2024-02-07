@@ -1,7 +1,5 @@
 <mat-drawer-container class="dashboardCointainer" autosize>
   <mat-drawer #drawer class="sidenavContainer" mode="side">
-    
-
     <ul>
       <li>
         <mat-icon
@@ -17,34 +15,25 @@
           aria-label="Example home icon"
           fontIcon="group_add"
         ></mat-icon
-        ><a 
-        routerLink="users" routerLinkActive="active"
-          >Usuarios</a
-        >
+        ><a routerLink="users" routerLinkActive="active">Usuarios</a>
       </li>
       <li>
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
-          fontIcon="group_add"
+          fontIcon="class"
         ></mat-icon
-        ><a 
-        routerLink="users" routerLinkActive="active"
-          >Cursos</a
-        >
+        ><a routerLink="courses" routerLinkActive="active">Cursos</a>
       </li>
       <li>
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
-          fontIcon="group_add"
+          fontIcon="exit_to_app"
         ></mat-icon
-        ><a (click)="logout()" routerLinkActive="active"
-          >Cerrar sesion</a
-        >
+        ><a (click)="logout()" routerLinkActive="active">Cerrar sesion</a>
       </li>
     </ul>
-
 
     <!--  -->
   </mat-drawer>
@@ -62,7 +51,7 @@
     </mat-toolbar>
   </div>
   <div class="tableContainer">
-    <!-- <app-users></app-users> -->
+   
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

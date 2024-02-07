@@ -11,11 +11,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users.component';
 import {MatListModule} from '@angular/material/list';
 import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail.component';
+import { CoursesModule } from './pages/courses/courses.module';
 
 
 @NgModule({
   declarations: [DashboardComponent],
-  imports: [CommonModule, MatSidenavModule, MatButtonModule, MatToolbarModule, MatIconModule,UsersModule,MatListModule ,RouterModule.forChild([
+  imports: [CommonModule, MatSidenavModule,CoursesModule, MatButtonModule, MatToolbarModule, MatIconModule,UsersModule,MatListModule ,RouterModule.forChild([
     {
       path: 'home',
       component: HomeComponent,
@@ -23,6 +24,10 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
     {
       path: 'users',
       component: UsersComponent,
+    },
+    {
+      path: 'courses',
+      loadChildren: () => import('./pages/courses/courses.module').then(m => m.CoursesModule),
     },
     {
       path: 'users/:id',
