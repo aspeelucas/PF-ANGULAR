@@ -19,8 +19,6 @@ export class UserFormComponent {
       email: this.fb.control('',[Validators.required,Validators.email]),
       phone: this.fb.control('',[Validators.required]),
       role: this.fb.control('',Validators.required),
-      nivel: this.fb.control('',Validators.required),
-      curso: this.fb.control('',Validators.required),
     });
   }
   

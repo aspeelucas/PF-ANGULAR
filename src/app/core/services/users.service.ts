@@ -12,8 +12,7 @@ let USERS_DB: IUsers[] = [
     email: 'lucasgarcia@gmail.com',
     phone: 123456789,
     role: 'Alumno',
-    nivel: 'Inicial',
-    curso: 'Basico',
+   
   },
   {
     id: 2,
@@ -22,8 +21,7 @@ let USERS_DB: IUsers[] = [
     email: 'ptobalda@gmail.com',
     phone: 123456789,
     role: 'Alumno',
-    nivel: 'Intermedio',
-    curso: 'Bases del ingles',
+ 
   },
 ];
 

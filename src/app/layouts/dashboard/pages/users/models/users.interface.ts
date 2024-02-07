@@ -5,6 +5,5 @@ export interface IUsers {
     email: string;
     phone: Number;
     role: string;
-    nivel: string; 
-    curso: string; 
+   
 }

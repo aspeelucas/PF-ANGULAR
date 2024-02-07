@@ -5,11 +5,15 @@ import { LoginComponent } from './layouts/auth/pages/login/login.component';
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+
   {
     path: 'dashboard',
     component: DashboardComponent,
-    loadChildren: () => import('./layouts/dashboard/dashboard.module').then((m) => m.DashboardModule),
+    loadChildren: () =>
+      import('./layouts/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
   {
     path: 'auth/login',
@@ -19,7 +23,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/404',
-  }
+  },
 ];
 
 @NgModule({

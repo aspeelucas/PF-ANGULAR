@@ -1,63 +1,69 @@
 <h1 appFontSizeDirective>Gestor de Cursos</h1>
 <div class="formContainer">
-  <div class="buttonContainer" >
-    <button mat-flat-button  (click)="onCreateCourse()" >Agregar Curso</button>
+  <div class="buttonContainer">
+    <button mat-flat-button (click)="onCreateCourse()">Agregar Curso</button>
   </div>
   <div class="tableBodyCursos">
-    <table mat-table [dataSource]="courses" class="mat-elevation-z8"> 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-    
-      <!-- Position Column -->
+    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
-        <th class="acctionText" mat-header-cell *matHeaderCellDef>Id</th>
-        <td class="acctionText" mat-cell *matCellDef="let element">{{ element.id }}</td>
+        <th class="acctionText" mat-header-cell *matHeaderCellDef>ID</th>
+        <td class="acctionText" mat-cell *matCellDef="let element">
+          {{ element.id }}
+        </td>
       </ng-container>
-    
-      <!-- Name Column -->
+
       <ng-container matColumnDef="nameCourse">
         <th class="acctionText" mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td class="acctionText"  mat-cell *matCellDef="let element">{{ element.nameCourse }}</td>
+        <td class="acctionText" mat-cell *matCellDef="let element">
+          {{ element.nameCourse }}
+        </td>
       </ng-container>
-    
-      <!-- Weight Column -->
+
       <ng-container matColumnDef="start">
         <th class="acctionText" mat-header-cell *matHeaderCellDef>Comienzo</th>
-        <td class="acctionText" mat-cell *matCellDef="let element">{{ element.start | date:"dd/MM/YYYY" }}</td>
+        <td class="acctionText" mat-cell *matCellDef="let element">
+          {{ element.start | date : "dd/MM/YYYY" }}
+        </td>
       </ng-container>
-    
+
       <ng-container matColumnDef="end">
-        <th class="acctionText" mat-header-cell *matHeaderCellDef>Finalizacion</th>
-        <td class="acctionText" mat-cell *matCellDef="let element">{{ element.end | date:"dd/MM/YYYY"}}</td>
+        <th class="acctionText" mat-header-cell *matHeaderCellDef>
+          Finalizacion
+        </th>
+        <td class="acctionText" mat-cell *matCellDef="let element">
+          {{ element.end | date : "dd/MM/YYYY" }}
+        </td>
       </ng-container>
-    
-      <ng-container  matColumnDef="price">
+
+      <ng-container matColumnDef="price">
         <th class="acctionText" mat-header-cell *matHeaderCellDef>Precio</th>
-        <td class="acctionText"  mat-cell *matCellDef="let element">${{ element.price }}</td>
+        <td class="acctionText" mat-cell *matCellDef="let element">
+          ${{ element.price }}
+        </td>
       </ng-container>
-      <ng-container  matColumnDef="actions">
+      <ng-container matColumnDef="actions">
         <th class="acctionText" mat-header-cell *matHeaderCellDef>Acciones</th>
         <td class="actionButton" mat-cell *matCellDef="let element">
           {{ element.actions }}
-          <button class="buttonEdit" mat-icon-button (click)=" onEditCourse(element)">
+          <button
+            class="buttonEdit"
+            mat-icon-button
+            (click)="onEditCourse(element)"
+          >
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="showModalDeleted(element)">
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="showModalDeleted(element)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>
-    
-      <!-- Symbol Column -->
-    
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-
   </div>
-  
-  
-
-
 </div>
-

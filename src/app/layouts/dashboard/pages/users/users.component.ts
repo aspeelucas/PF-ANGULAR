@@ -19,8 +19,8 @@ export class UsersComponent implements OnInit {
     'email',
     'phone',
     'role',
-    'nivel',
-    'curso',
+    // 'nivel',
+    // 'curso',
     'actions',
   ];
   dataSource: IUsers[] = [];
