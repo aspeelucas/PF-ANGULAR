@@ -12,7 +12,6 @@ let USERS_DB: IUsers[] = [
     email: 'lucasgarcia@gmail.com',
     phone: 123456789,
     role: 'Admin',
-   
   },
   {
     id: 2,
@@ -21,7 +20,6 @@ let USERS_DB: IUsers[] = [
     email: 'ptobalda@gmail.com',
     phone: 123456789,
     role: 'Estudiante',
- 
   },
 ];
 
@@ -39,7 +37,7 @@ export class UsersService {
     return of(USERS_DB).pipe(delay(1000));
   }
 
-  getUserById(id: number |string): Observable<IUsers | undefined> {
+  getUserById(id: number | string): Observable<IUsers | undefined> {
     USERS_DB.find((user) => user.id == id);
     return of(USERS_DB.find((user) => user.id == id)).pipe(delay(1000));
   }
@@ -67,7 +65,9 @@ export class UsersService {
     );
   }
   updateUserById(id: number, payload: IUsers) {
-    USERS_DB = USERS_DB.map((user) =>user.id === id ? { ...user, ...payload } : user);
+    USERS_DB = USERS_DB.map((user) =>
+      user.id === id ? { ...user, ...payload } : user
+    );
     return this.getUsers().pipe(
       tap(() =>
         this.alertServices.showSuccess(

@@ -58,11 +58,13 @@ export class CoursesComponent {
       .afterClosed()
       .subscribe({
         next: (result) => {
-          this.coursesService.updateCourseById(course.id, result).subscribe({
-            next: (courses) => {
-              this.courses = courses;
-            },
-          });
+          if (result) {
+            this.coursesService.updateCourseById(course.id, result).subscribe({
+              next: (courses) => {
+                this.courses = courses;
+              },
+            });
+          }
         },
       });
   }
