@@ -38,29 +38,33 @@ export class CoursesComponent {
       .subscribe({
         next: (result) => {
           if (result) {
-            this.coursesService.createCourse({...result, id: this.courses.length+1}).subscribe({
-              next: (courses) => {
-                this.courses = courses;
-              },
-            });
+            this.coursesService
+              .createCourse({ ...result, id: this.courses.length + 1 })
+              .subscribe({
+                next: (courses) => {
+                  this.courses = courses;
+                },
+              });
           }
         },
       });
   }
 
   onEditCourse(course: ICourse): void {
-    this.dialog.open(CourseDialogComponent,{
-      data:course
-    }).afterClosed().subscribe({ 
-        next : (result)=>{
-          this.coursesService.updateCourseById(course.id,result).subscribe({
+    this.dialog
+      .open(CourseDialogComponent, {
+        data: course,
+      })
+      .afterClosed()
+      .subscribe({
+        next: (result) => {
+          this.coursesService.updateCourseById(course.id, result).subscribe({
             next: (courses) => {
               this.courses = courses;
             },
-          })
-        }
-
-    })
+          });
+        },
+      });
   }
 
   deleteCourse(id: number) {
@@ -70,7 +74,6 @@ export class CoursesComponent {
       },
     });
   }
-
 
   showModalDeleted(ev: ICourse): void {
     Swal.fire({

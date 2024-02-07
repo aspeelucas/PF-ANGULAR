@@ -11,7 +11,7 @@ let USERS_DB: IUsers[] = [
     lastName: 'Garcia',
     email: 'lucasgarcia@gmail.com',
     phone: 123456789,
-    role: 'Alumno',
+    role: 'Admin',
     
   },
   {
@@ -20,7 +20,7 @@ let USERS_DB: IUsers[] = [
     lastName: 'Tobalada',
     email: 'ptobalda@gmail.com',
     phone: 123456789,
-    role: 'Alumno',
+    role: 'Estudiante',
   
   },
 ];
@@ -58,5 +58,17 @@ export class UsersMockServices {
   deleteUser(id: number) {
     USERS_DB = USERS_DB.filter((user) => user.id !== id);
     return this.getUsers().pipe(tap(() => this.alertServices.showSuccess('Usuario eliminado', 'El usuario fue eliminado correctamente')));
+  }
+
+  updateUserById(id: number, payload: IUsers) {
+    USERS_DB = USERS_DB.map((user) =>user.id === id ? { ...user, ...payload } : user);
+    return this.getUsers().pipe(
+      tap(() =>
+        this.alertServices.showSuccess(
+          'Usuario actualizado',
+          'El usuario fue actualizado correctamente'
+        )
+      )
+    );
   }
 }

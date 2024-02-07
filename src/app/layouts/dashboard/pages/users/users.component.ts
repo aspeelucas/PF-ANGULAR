@@ -4,7 +4,8 @@ import { UsersService } from '../../../../core/services/users.service';
 import { LoadingService } from '../../../../core/services/loading.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
-
+import { MatDialog } from '@angular/material/dialog';
+import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -19,8 +20,6 @@ export class UsersComponent implements OnInit {
     'email',
     'phone',
     'role',
-    // 'nivel',
-    // 'curso',
     'actions',
   ];
   dataSource: IUsers[] = [];
@@ -30,6 +29,7 @@ export class UsersComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private loadingService: LoadingService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -95,12 +95,41 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  onUpdatedUser(user: IUsers): void {
-    this.dataSource = this.dataSource.map((u) => {
-      if (u.id === user.id) {
-        return user;
-      }
-      return u;
-    });
+  // metodos de dialog
+
+  onCreateUser(): void {
+    this.dialog
+      .open(UserDialogComponent)
+      .afterClosed()
+      .subscribe({
+        next: (result) => {
+          if (result) {
+            this.onUserSubmitted(result);
+          }
+        },
+      });
+  }
+
+  onEditUser(user: IUsers) {
+    this.dialog
+      .open(UserDialogComponent, {
+        data: user,
+      })
+      .afterClosed()
+      .subscribe({
+        next: (result) => {
+          if (result) {
+            this.loadingService.setLoading(true);
+            this.usersService.updateUserById(user.id, result).subscribe({
+              next: (users) => {
+                this.dataSource = [...users];
+              },
+              complete: () => {
+                this.loadingService.setLoading(false);
+              },
+            });
+          }
+        },
+      });
   }
 }

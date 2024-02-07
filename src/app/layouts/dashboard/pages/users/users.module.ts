@@ -15,11 +15,13 @@ import { UsersService } from '../../../../core/services/users.service';
 import { UsersMockServices } from '../../../../core/services/users-mock.services';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
+import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 @NgModule({
   declarations: [
     UsersComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserDialogComponent
   ],
   imports: [
     CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,ReactiveFormsModule,MatIconModule,MatExpansionModule,SharedModule,RouterModule
