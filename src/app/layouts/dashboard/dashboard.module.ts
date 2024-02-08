@@ -14,6 +14,8 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
 import { CoursesModule } from './pages/courses/courses.module';
 import { CoursesComponent } from './pages/courses/courses.component';
 
+
+
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
@@ -24,6 +26,8 @@ import { CoursesComponent } from './pages/courses/courses.component';
     MatToolbarModule,
     MatIconModule,
     UsersModule,
+   
+    
     MatListModule,
     RouterModule.forChild([
       {

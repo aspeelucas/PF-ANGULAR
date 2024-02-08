@@ -6,7 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -23,7 +23,7 @@ import { UserDialogComponent } from './components/user-dialog/user-dialog.compon
     UserDialogComponent
   ],
   imports: [
-    CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,ReactiveFormsModule,MatIconModule,MatExpansionModule,SharedModule,RouterModule
+    CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,ReactiveFormsModule,MatIconModule,MatExpansionModule,SharedModule,RouterModule
   ],
   exports: [
     UsersComponent
